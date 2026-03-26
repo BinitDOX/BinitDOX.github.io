@@ -5,20 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BinitDOX</title>
 
-  <!-- Tailwind & Animations -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
   <style>
-    /* Base Theme */
     body {
-      background-color: #0f172a; /* Slate 900 */
-      color: #f8fafc; /* Slate 50 */
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #0f172a;
+      color: #f8fafc;
+      font-family: 'Inter', -apple-system, sans-serif;
       overflow-x: hidden;
     }
-
-    /* Ambient Glowing Background Blobs */
     .bg-blob {
       position: fixed;
       border-radius: 50%;
@@ -26,222 +22,229 @@
       z-index: -1;
       pointer-events: none;
     }
-    .blob-1 {
-      top: -10%; left: -10%; width: 50vw; height: 50vw;
-      background: rgba(99, 102, 241, 0.15); /* Indigo */
-    }
-    .blob-2 {
-      bottom: -10%; right: -10%; width: 60vw; height: 60vw;
-      background: rgba(16, 185, 129, 0.10); /* Emerald */
-    }
+    .blob-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: rgba(99,102,241,0.15); }
+    .blob-2 { bottom: -10%; right: -10%; width: 60vw; height: 60vw; background: rgba(16,185,129,0.10); }
 
-    /* Glassmorphism Cards */
     .glass-card {
-      background: rgba(30, 41, 59, 0.6);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      background: rgba(30, 41, 59, 0.7);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .glass-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 15px 35px -10px rgba(99, 102, 241, 0.25);
-      border-color: rgba(99, 102, 241, 0.4);
+      box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.3);
+      border: 1px solid rgba(99, 102, 241, 0.5);
     }
 
-    /* Terminal blinking cursor */
+    .terminal {
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 16px;
+      font-family: monospace;
+      font-size: 0.9rem;
+      color: #94a3b8;
+      max-width: 600px;
+    }
+    .terminal span { color: #22c55e; }
     .cursor-blink { animation: blink 1s step-end infinite; }
     @keyframes blink { 50% { opacity: 0; } }
   </style>
 </head>
 
 <body class="antialiased relative min-h-screen flex flex-col">
-  
-  <!-- Ambient Background -->
   <div class="bg-blob blob-1"></div>
   <div class="bg-blob blob-2"></div>
 
-  <!-- ================= HERO SECTION ================= -->
-  <header class="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-10" data-aos="fade-down" data-aos-duration="1000">
-    
-    <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-sky-400 to-emerald-400">
+  <!-- HERO -->
+  <header class="min-h-screen flex flex-col justify-center items-center text-center px-4" data-aos="fade-up">
+    <h1 class="text-5xl md:text-7xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-emerald-400">
       Hello there,
     </h1>
 
-    <p class="text-xl md:text-2xl text-slate-400 mb-10 max-w-2xl font-light leading-relaxed">
-      I build AI systems, tools, and experiments — sometimes useful, sometimes just because I can.
+    <p class="text-xl md:text-2xl text-slate-400 mb-6 max-w-2xl">
+      I build AI systems, tools, and experiments _ sometimes useful, sometimes just because I can.
     </p>
 
-    <!-- Terminal Window UI -->
-    <div class="w-full max-w-lg mx-auto mb-10 text-left glass-card rounded-xl overflow-hidden shadow-2xl">
-      <!-- Terminal Header -->
-      <div class="h-8 bg-slate-800/80 border-b border-slate-700/50 flex items-center px-4 gap-2">
-        <div class="w-3 h-3 rounded-full bg-rose-500/80"></div>
-        <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
-        <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
-      </div>
-      <!-- Terminal Body -->
-      <div class="p-5 font-mono text-sm sm:text-base text-slate-300 space-y-2">
-        <div class="flex"><span class="text-emerald-400 mr-3">❯</span> building multi-agent systems</div>
-        <div class="flex"><span class="text-emerald-400 mr-3">❯</span> experimenting with AI pipelines</div>
-        <div class="flex"><span class="text-emerald-400 mr-3">❯</span> making software do things it shouldn't</div>
-        <div class="flex"><span class="text-emerald-400 mr-3">❯</span><span class="w-2.5 h-5 bg-slate-400 cursor-blink inline-block align-middle"></span></div>
-      </div>
+    <!-- terminal vibe -->
+    <div class="terminal mb-8 text-left mx-auto">
+      <div><span>>></span> building multi-agent systems</div>
+      <div><span>>></span> experimenting with AI pipelines</div>
+      <div><span>>></span> making software do things it shouldn't <span class="w-2 h-4 bg-slate-400 inline-block align-middle cursor-blink"></span></div>
     </div>
 
-    <!-- CTA Buttons -->
-    <div class="flex flex-wrap justify-center gap-4 mb-12">
-      <a href="https://github.com/BinitDOX" target="_blank" rel="noopener noreferrer" class="px-8 py-3.5 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold transition-all shadow-[0_0_20px_rgba(79,70,229,0.4)] hover:shadow-[0_0_30px_rgba(79,70,229,0.6)]">
-        GitHub Profile
+    <div class="flex gap-4">
+      <a href="https://github.com/BinitDOX" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white font-medium shadow-lg shadow-indigo-500/30 transition-all">
+        GitHub
       </a>
-      <a href="#projects" class="px-8 py-3.5 rounded-full glass-card hover:bg-slate-800/80 text-slate-200 hover:text-white font-semibold transition-all">
-        Explore Work ↓
+      <a href="#projects" class="px-6 py-3 rounded-full border border-slate-600 hover:border-slate-400 text-slate-300 hover:text-white transition-all">
+        Explore
       </a>
     </div>
 
-    <p class="text-slate-500 text-sm font-medium tracking-wide uppercase">
-      Currently into: Multi-Agent Systems • Local-First AI • Distributed Inference
+    <p class="text-slate-400 mt-10 max-w-xl text-sm italic">
+      Currently into → multi-agent systems • local-first AI • distributed inference • weird automation
     </p>
   </header>
 
-  <!-- ================= PROJECTS SECTION ================= -->
-  <main id="projects" class="max-w-6xl mx-auto px-4 py-24 flex-grow">
-    
-    <!-- Section Intro -->
-    <div class="text-center mb-16" data-aos="fade-up">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4 text-slate-100">Stuff I've Built</h2>
-      <p class="text-slate-400 max-w-2xl mx-auto text-lg">
-        Most of what I build revolves around control systems, AI pipelines, and pushing tools slightly beyond what they were meant to do.
-      </p>
-    </div>
+  <!-- PATTERNS / INTRO -->
+  <section class="max-w-4xl mx-auto px-4 py-10 text-center" data-aos="fade-up">
+    <h2 class="text-3xl font-bold mb-4">Patterns</h2>
+    <p class="text-slate-400 text-lg">
+      Most of what I build revolves around control systems, AI pipelines, and pushing tools slightly beyond what they were meant to do.
+    </p>
+  </section>
 
-    <!-- Grid Container -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+  <!-- PROJECTS -->
+  <main id="projects" class="max-w-6xl mx-auto px-4 py-10">
+    <h2 class="text-3xl font-bold mb-12 text-center" data-aos="fade-up">Stuff I've Built</h2>
 
-      <!-- Project: ShadowRecord -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- ShadowRecord -->
+      <div class="glass-card rounded-2xl p-6 flex flex-col h-full" data-aos="fade-up">
+        <h3 class="text-xl font-bold text-emerald-400 mb-3">ShadowRecord</h3>
+        <p class="text-sm text-slate-300 mb-6 flex-grow">
+          Records audio in the background, skips silence, keeps a rolling buffer. Built to capture "what just happened" moments.
+        </p>
+        <div class="flex gap-4 text-xs font-bold mt-auto pt-4 border-t border-slate-700/50">
+          <a href="https://play.google.com/store/apps/details?id=com.dox.shadowrecord" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300">Play Store →</a>
+          <a href="privacy/shadow-record.html" class="text-slate-400 hover:text-slate-300">Privacy</a>
+        </div>
+      </div>
+
+      <!-- Manga-Colorizer -->
       <div class="glass-card rounded-2xl p-6 flex flex-col h-full" data-aos="fade-up" data-aos-delay="100">
-        <div class="flex justify-between items-start mb-4">
-          <h3 class="text-xl font-bold text-emerald-400">ShadowRecord</h3>
-          <span class="px-2.5 py-1 text-xs font-semibold bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 rounded-full">Kotlin</span>
-        </div>
-        <p class="text-slate-300 text-sm mb-6 leading-relaxed flex-grow">
-          Records audio in the background, skips silence via VAD, and keeps a rolling buffer. Built to retroactively capture "what just happened" moments.
-        </p>
-        <div class="flex gap-4 text-sm font-semibold mt-auto pt-4 border-t border-slate-700/50">
-          <a href="https://play.google.com/store/apps/details?id=com.dox.shadowrecord" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 transition-colors">Play Store →</a>
-          <a href="privacy/shadow-record.html" class="text-slate-400 hover:text-slate-300 transition-colors">Privacy</a>
-        </div>
-      </div>
-
-      <!-- Project: Manga-Colorizer -->
-      <div class="glass-card rounded-2xl p-6 flex flex-col h-full" data-aos="fade-up" data-aos-delay="200">
-        <div class="flex justify-between items-start mb-4">
+        <div class="flex justify-between items-start mb-3">
           <h3 class="text-xl font-bold text-indigo-400">Manga-Colorizer</h3>
-          <div class="flex gap-2">
-            <span class="px-2.5 py-1 text-xs font-semibold bg-yellow-500/10 border border-yellow-500/20 text-yellow-300 rounded-full">⭐ 146</span>
-            <span class="px-2.5 py-1 text-xs font-semibold bg-blue-500/10 border border-blue-500/20 text-blue-300 rounded-full">Python</span>
-          </div>
+          <span class="px-2 py-0.5 text-[10px] font-bold bg-yellow-500/10 text-yellow-500 rounded-full border border-yellow-500/20">⭐ 146</span>
         </div>
-        <p class="text-slate-300 text-sm mb-6 leading-relaxed flex-grow">
-          Deep learning pipeline to colorize manga panels automatically. Still feels illegal how well it works sometimes.
+        <p class="text-sm text-slate-300 mb-6 flex-grow">
+          Deep learning pipeline to colorize manga panels. Still feels illegal how well it works sometimes.
         </p>
-        <div class="flex flex-wrap gap-4 text-sm font-semibold mt-auto pt-4 border-t border-slate-700/50">
-          <a href="https://manga-colorizer-pro.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 transition-colors">Live App →</a>
-          <a href="https://github.com/BinitDOX/Manga-Colorizer" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 transition-colors">Source</a>
+        <div class="flex gap-4 text-xs font-bold mt-auto pt-4 border-t border-slate-700/50">
+          <a href="https://manga-colorizer-pro.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300">Live App →</a>
+          <a href="https://github.com/BinitDOX/Manga-Colorizer" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300">Source</a>
         </div>
       </div>
 
-      <!-- Project: AARA -->
-      <div class="glass-card rounded-2xl p-6 flex flex-col h-full" data-aos="fade-up" data-aos-delay="300">
-        <div class="flex justify-between items-start mb-4">
+      <!-- AARA -->
+      <div class="glass-card rounded-2xl p-6 flex flex-col h-full" data-aos="fade-up" data-aos-delay="200">
+        <div class="flex justify-between items-start mb-3">
           <h3 class="text-xl font-bold text-pink-400">AARA</h3>
-          <span class="px-2.5 py-1 text-xs font-semibold bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 rounded-full">Kotlin</span>
+          <span class="px-2 py-0.5 text-[10px] font-bold bg-yellow-500/10 text-yellow-500 rounded-full border border-yellow-500/20">⭐ 1</span>
         </div>
-        <p class="text-slate-300 text-sm mb-6 leading-relaxed flex-grow">
-          Active Recall Assistant. A productivity tool using spaced repetition, evolved into a multi-agent system where assistants can autonomously control your Android device.
+        <p class="text-sm text-slate-300 mb-6 flex-grow">
+          Multi-agent assistant system where you design assistants that can control your Android. Memory and recall are just side features _ the real goal is control + autonomy.
         </p>
-        <div class="flex gap-4 text-sm font-semibold mt-auto pt-4 border-t border-slate-700/50">
-          <a href="https://play.google.com/store/apps/details?id=com.dox.aara" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 transition-colors">Play Store →</a>
-          <a href="https://github.com/BinitDOX/ARA" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-slate-300 transition-colors">Legacy Code</a>
+        <div class="flex gap-4 text-xs font-bold mt-auto pt-4 border-t border-slate-700/50">
+          <a href="https://play.google.com/store/apps/details?id=com.dox.aara" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300">Play Store →</a>
+          <a href="https://github.com/BinitDOX/ARA" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-slate-300">Source</a>
+          <a href="privacy/aara.html" class="text-slate-400 hover:text-slate-300">Privacy</a>
         </div>
       </div>
 
-      <!-- Project: FakePowerOff -->
-      <div class="glass-card rounded-2xl p-6 flex flex-col h-full" data-aos="fade-up" data-aos-delay="400">
-        <div class="flex justify-between items-start mb-4">
+      <!-- FakePowerOff -->
+      <div class="glass-card rounded-2xl p-6 flex flex-col h-full" data-aos="fade-up">
+        <div class="flex justify-between items-start mb-3">
           <h3 class="text-xl font-bold text-orange-400">FakePowerOff</h3>
-          <div class="flex gap-2">
-            <span class="px-2.5 py-1 text-xs font-semibold bg-yellow-500/10 border border-yellow-500/20 text-yellow-300 rounded-full">⭐ 20</span>
-            <span class="px-2.5 py-1 text-xs font-semibold bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 rounded-full">Kotlin</span>
-          </div>
+          <span class="px-2 py-0.5 text-[10px] font-bold bg-yellow-500/10 text-yellow-500 rounded-full border border-yellow-500/20">⭐ 20</span>
         </div>
-        <p class="text-slate-300 text-sm mb-6 leading-relaxed flex-grow">
-          Simulates a device shutdown. Started as a curiosity, ended up being oddly practical for anti-theft workflows.
+        <p class="text-sm text-slate-300 mb-6 flex-grow">
+          Fake shutdown screen. Started as a curiosity, ended up being oddly practical.
         </p>
-        <div class="flex flex-wrap gap-4 text-sm font-semibold mt-auto pt-4 border-t border-slate-700/50">
-          <a href="https://play.google.com/store/apps/details?id=com.dox.fpoweroff" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 transition-colors">Play Store →</a>
-          <a href="https://github.com/BinitDOX/FakePowerOff" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 transition-colors">Source</a>
-          <a href="privacy/fake-power-off.html" class="text-slate-400 hover:text-slate-300 transition-colors">Privacy</a>
+        <div class="flex gap-4 text-xs font-bold mt-auto pt-4 border-t border-slate-700/50">
+          <a href="https://play.google.com/store/apps/details?id=com.dox.fpoweroff" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300">Play Store →</a>
+          <a href="https://github.com/BinitDOX/FakePowerOff" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-slate-300">Source</a>
+          <a href="privacy/fake-power-off.html" class="text-slate-400 hover:text-slate-300">Privacy</a>
         </div>
       </div>
 
-      <!-- Project: Qwen Image Edit -->
-      <div class="glass-card rounded-2xl p-6 flex flex-col h-full" data-aos="fade-up" data-aos-delay="500">
-        <div class="flex justify-between items-start mb-4">
-          <h3 class="text-xl font-bold text-sky-400">Qwen Image Editor</h3>
-          <span class="px-2.5 py-1 text-xs font-semibold bg-blue-500/10 border border-blue-500/20 text-blue-300 rounded-full">Python</span>
+      <!-- Tensor Bridge -->
+      <div class="glass-card rounded-2xl p-6 flex flex-col h-full" data-aos="fade-up" data-aos-delay="100">
+        <div class="flex justify-between items-start mb-3">
+          <h3 class="text-xl font-bold text-sky-400">Tensor Bridge</h3>
+          <span class="px-2 py-0.5 text-[10px] font-bold bg-yellow-500/10 text-yellow-500 rounded-full border border-yellow-500/20">⭐ 1</span>
         </div>
-        <p class="text-slate-300 text-sm mb-6 leading-relaxed flex-grow">
-          An experimental pipeline for editing images using Qwen Vision models. Configured and optimized for rapid deployment in Kaggle environments.
+        <p class="text-sm text-slate-300 mb-6 flex-grow">
+          Moves tensors/images between ComfyUI instances over the network. Built for distributed AI experiments.
         </p>
-        <div class="flex gap-4 text-sm font-semibold mt-auto pt-4 border-t border-slate-700/50">
-          <a href="https://github.com/BinitDOX/Qwen-Image-Edit-Kaggle" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 transition-colors">View Source →</a>
+        <div class="flex gap-4 text-xs font-bold mt-auto pt-4 border-t border-slate-700/50">
+          <a href="https://github.com/BinitDOX/ComfyUI-Tensor-Bridge" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300">Source</a>
+          <a href="https://github.com/BinitDOX/Qwen-Image-Edit-Kaggle" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:text-sky-300">Qwen Use Case →</a>
         </div>
       </div>
 
-      <!-- Project: AutoSaber Quest -->
-      <div class="glass-card rounded-2xl p-6 flex flex-col h-full" data-aos="fade-up" data-aos-delay="600">
-        <div class="flex justify-between items-start mb-4">
-          <h3 class="text-xl font-bold text-red-400">AutoSaber Quest</h3>
-          <span class="px-2.5 py-1 text-xs font-semibold bg-purple-500/10 border border-purple-500/20 text-purple-300 rounded-full">C#</span>
-        </div>
-        <p class="text-slate-300 text-sm mb-6 leading-relaxed flex-grow">
-          Generates Beat Saber maps using AI directly in-game. Because doing it manually is tedious. Bridges deep learning with VR game mechanics.
+      <!-- QR Attendance -->
+      <div class="glass-card rounded-2xl p-6 flex flex-col h-full" data-aos="fade-up" data-aos-delay="200">
+        <h3 class="text-xl font-bold text-amber-400 mb-3">QR Attendance</h3>
+        <p class="text-sm text-slate-300 mb-6 flex-grow">
+          Contactless attendance using dynamic QR codes. Because waiting in line to sign a sheet is a waste of life.
         </p>
-        <div class="flex gap-4 text-sm font-semibold mt-auto pt-4 border-t border-slate-700/50">
-          <a href="https://auto-saber.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 transition-colors">Live Site →</a>
-          <a href="https://github.com/BinitDOX/AutoSaber-Quest" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 transition-colors">Source</a>
+        <div class="flex gap-4 text-xs font-bold mt-auto pt-4 border-t border-slate-700/50">
+          <a href="https://qra.web.app/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300">Live App →</a>
+          <a href="https://github.com/BinitDOX/QR-Attendance" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300">Source</a>
+        </div>
+      </div>
+
+      <!-- Wireless IDS -->
+      <div class="glass-card rounded-2xl p-6 flex flex-col h-full" data-aos="fade-up">
+        <div class="flex justify-between items-start mb-3">
+          <h3 class="text-xl font-bold text-cyan-400">Wireless IDS</h3>
+          <span class="px-2 py-0.5 text-[10px] font-bold bg-yellow-500/10 text-yellow-500 rounded-full border border-yellow-500/20">⭐ 2</span>
+        </div>
+        <p class="text-sm text-slate-300 mb-6 flex-grow">
+          Real-time Wireless Intrusion Detection. I'll know if you're trying to deauth me.
+        </p>
+        <div class="flex gap-4 text-xs font-bold mt-auto pt-4 border-t border-slate-700/50">
+          <a href="https://github.com/BinitDOX/Wireless-Intrusion-Detection-System" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300">Source →</a>
+        </div>
+      </div>
+
+      <!-- TriickSaber -->
+      <div class="glass-card rounded-2xl p-6 flex flex-col h-full" data-aos="fade-up" data-aos-delay="100">
+        <div class="flex justify-between items-start mb-3">
+          <h3 class="text-xl font-bold text-fuchsia-400">TriickSaber</h3>
+          <span class="px-2 py-0.5 text-[10px] font-bold bg-yellow-500/10 text-yellow-500 rounded-full border border-yellow-500/20">⭐ 2</span>
+        </div>
+        <p class="text-sm text-slate-300 mb-6 flex-grow">
+          VR mod for Beat Saber. Adds physics-based saber spinning and tricks. Because just hitting blocks wasn't flashy enough.
+        </p>
+        <div class="flex gap-4 text-xs font-bold mt-auto pt-4 border-t border-slate-700/50">
+          <a href="https://github.com/BinitDOX/TriickSaber/releases/latest" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300">Download →</a>
+          <a href="https://github.com/BinitDOX/TriickSaber" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300">Source</a>
+        </div>
+      </div>
+
+      <!-- AutoSaber -->
+      <div class="glass-card rounded-2xl p-6 flex flex-col h-full" data-aos="fade-up" data-aos-delay="200">
+        <h3 class="text-xl font-bold text-red-400 mb-3">AutoSaber</h3>
+        <p class="text-sm text-slate-300 mb-6 flex-grow">
+          Generates Beat Saber maps using AI directly in-game. Because doing it manually sucks.
+        </p>
+        <div class="flex gap-4 text-xs font-bold mt-auto pt-4 border-t border-slate-700/50">
+          <a href="https://auto-saber.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300">Live Site →</a>
+          <a href="https://github.com/BinitDOX/AutoSaber-Quest" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300">Source</a>
         </div>
       </div>
 
     </div>
 
-    <!-- Outro -->
-    <div class="mt-20 text-center" data-aos="fade-in" data-aos-delay="200">
-      <p class="text-slate-400 max-w-xl mx-auto">
-        There’s more weird stuff on my GitHub — experiments, half-built ideas, and things I probably forgot about.
-      </p>
-      <a href="https://github.com/BinitDOX?tab=repositories" target="_blank" rel="noopener noreferrer" class="inline-block mt-6 text-indigo-400 hover:text-indigo-300 font-semibold transition-colors">
-        View all repositories →
-      </a>
-    </div>
+    <p class="text-center text-slate-500 mt-16 text-sm">
+      There’s more weird stuff on my GitHub _ experiments, half-built ideas, and things I probably forgot about.
+    </p>
   </main>
 
-  <!-- ================= FOOTER ================= -->
-  <footer class="border-t border-slate-800/50 bg-slate-900/30 backdrop-blur-sm mt-auto py-10 text-center">
-    <p class="text-slate-400 font-semibold">© 2026 BinitDOX</p>
-    <p class="text-slate-500 text-sm mt-2">Building AI systems, experimenting with code, and occasionally shipping something useful.</p>
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 mt-auto py-8 text-center text-slate-500 text-sm">
+    <p>© 2026 BinitDOX</p>
+    <p class="mt-2">Mostly building AI systems, experimenting with ideas, and occasionally shipping something useful.</p>
   </footer>
 
-  <!-- AOS Animation Script -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({ 
-      once: true, 
-      offset: 50,
-      duration: 800,
-      easing: 'ease-out-cubic'
-    });
+    AOS.init({ once: true, offset: 50, duration: 800 });
   </script>
 </body>
 </html>
