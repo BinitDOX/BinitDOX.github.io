@@ -91,7 +91,7 @@
 
     <!-- CTA Buttons -->
     <div class="flex flex-wrap justify-center gap-4 mb-12">
-      <a href="https://github.com/BinitDOX" target="_blank" class="px-8 py-3.5 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold transition-all shadow-[0_0_20px_rgba(79,70,229,0.4)] hover:shadow-[0_0_30px_rgba(79,70,229,0.6)]">
+      <a href="https://github.com/BinitDOX" target="_blank" rel="noopener noreferrer" class="px-8 py-3.5 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold transition-all shadow-[0_0_20px_rgba(79,70,229,0.4)] hover:shadow-[0_0_30px_rgba(79,70,229,0.6)]">
         GitHub Profile
       </a>
       <a href="#projects" class="px-8 py-3.5 rounded-full glass-card hover:bg-slate-800/80 text-slate-200 hover:text-white font-semibold transition-all">
@@ -128,8 +128,8 @@
           Records audio in the background, skips silence via VAD, and keeps a rolling buffer. Built to retroactively capture "what just happened" moments.
         </p>
         <div class="flex gap-4 text-sm font-semibold mt-auto pt-4 border-t border-slate-700/50">
-          <a href="https://play.google.com/store/apps/details?id=com.dox.shadowrecord" class="text-indigo-400 hover:text-indigo-300 transition-colors">Play Store →</a>
-          <a href="privacy/shadow-record.html" class="text-slate-400 hover:text-slate-300 transition-colors">Privacy Policy</a>
+          <a href="https://play.google.com/store/apps/details?id=com.dox.shadowrecord" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 transition-colors">Play Store →</a>
+          <a href="privacy/shadow-record.html" class="text-slate-400 hover:text-slate-300 transition-colors">Privacy</a>
         </div>
       </div>
 
@@ -145,13 +145,29 @@
         <p class="text-slate-300 text-sm mb-6 leading-relaxed flex-grow">
           Deep learning pipeline to colorize manga panels automatically. Still feels illegal how well it works sometimes.
         </p>
+        <div class="flex flex-wrap gap-4 text-sm font-semibold mt-auto pt-4 border-t border-slate-700/50">
+          <a href="https://manga-colorizer-pro.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 transition-colors">Live App →</a>
+          <a href="https://github.com/BinitDOX/Manga-Colorizer" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 transition-colors">Source</a>
+        </div>
+      </div>
+
+      <!-- Project: AARA -->
+      <div class="glass-card rounded-2xl p-6 flex flex-col h-full" data-aos="fade-up" data-aos-delay="300">
+        <div class="flex justify-between items-start mb-4">
+          <h3 class="text-xl font-bold text-pink-400">AARA</h3>
+          <span class="px-2.5 py-1 text-xs font-semibold bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 rounded-full">Kotlin</span>
+        </div>
+        <p class="text-slate-300 text-sm mb-6 leading-relaxed flex-grow">
+          Active Recall Assistant. A productivity tool using spaced repetition, evolved into a multi-agent system where assistants can autonomously control your Android device.
+        </p>
         <div class="flex gap-4 text-sm font-semibold mt-auto pt-4 border-t border-slate-700/50">
-          <a href="https://github.com/BinitDOX/Manga-Colorizer" class="text-indigo-400 hover:text-indigo-300 transition-colors">View Source →</a>
+          <a href="https://play.google.com/store/apps/details?id=com.dox.aara" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 transition-colors">Play Store →</a>
+          <a href="https://github.com/BinitDOX/ARA" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-slate-300 transition-colors">Legacy Code</a>
         </div>
       </div>
 
       <!-- Project: FakePowerOff -->
-      <div class="glass-card rounded-2xl p-6 flex flex-col h-full" data-aos="fade-up" data-aos-delay="300">
+      <div class="glass-card rounded-2xl p-6 flex flex-col h-full" data-aos="fade-up" data-aos-delay="400">
         <div class="flex justify-between items-start mb-4">
           <h3 class="text-xl font-bold text-orange-400">FakePowerOff</h3>
           <div class="flex gap-2">
@@ -162,37 +178,24 @@
         <p class="text-slate-300 text-sm mb-6 leading-relaxed flex-grow">
           Simulates a device shutdown. Started as a curiosity, ended up being oddly practical for anti-theft workflows.
         </p>
-        <div class="flex gap-4 text-sm font-semibold mt-auto pt-4 border-t border-slate-700/50">
-          <a href="https://github.com/BinitDOX/FakePowerOff" class="text-indigo-400 hover:text-indigo-300 transition-colors">View Source →</a>
+        <div class="flex flex-wrap gap-4 text-sm font-semibold mt-auto pt-4 border-t border-slate-700/50">
+          <a href="https://play.google.com/store/apps/details?id=com.dox.fpoweroff" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 transition-colors">Play Store →</a>
+          <a href="https://github.com/BinitDOX/FakePowerOff" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 transition-colors">Source</a>
           <a href="privacy/fake-power-off.html" class="text-slate-400 hover:text-slate-300 transition-colors">Privacy</a>
         </div>
       </div>
 
-      <!-- Project: ARA -->
-      <div class="glass-card rounded-2xl p-6 flex flex-col h-full" data-aos="fade-up" data-aos-delay="400">
-        <div class="flex justify-between items-start mb-4">
-          <h3 class="text-xl font-bold text-pink-400">ARA</h3>
-          <span class="px-2.5 py-1 text-xs font-semibold bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 rounded-full">Kotlin</span>
-        </div>
-        <p class="text-slate-300 text-sm mb-6 leading-relaxed flex-grow">
-          Multi-agent assistant system. Design assistants that can control your Android. Memory and recall are side features — the real goal is autonomy.
-        </p>
-        <div class="flex gap-4 text-sm font-semibold mt-auto pt-4 border-t border-slate-700/50">
-          <a href="https://github.com/BinitDOX/ARA" class="text-indigo-400 hover:text-indigo-300 transition-colors">View Source →</a>
-        </div>
-      </div>
-
-      <!-- Project: ComfyUI Tensor Bridge -->
+      <!-- Project: Qwen Image Edit -->
       <div class="glass-card rounded-2xl p-6 flex flex-col h-full" data-aos="fade-up" data-aos-delay="500">
         <div class="flex justify-between items-start mb-4">
-          <h3 class="text-xl font-bold text-sky-400">ComfyUI Tensor Bridge</h3>
+          <h3 class="text-xl font-bold text-sky-400">Qwen Image Editor</h3>
           <span class="px-2.5 py-1 text-xs font-semibold bg-blue-500/10 border border-blue-500/20 text-blue-300 rounded-full">Python</span>
         </div>
         <p class="text-slate-300 text-sm mb-6 leading-relaxed flex-grow">
-          Moves tensors and images between separate ComfyUI instances over the network. Built specifically for distributed AI experiments.
+          An experimental pipeline for editing images using Qwen Vision models. Configured and optimized for rapid deployment in Kaggle environments.
         </p>
         <div class="flex gap-4 text-sm font-semibold mt-auto pt-4 border-t border-slate-700/50">
-          <a href="https://github.com/BinitDOX/ComfyUI-Tensor-Bridge" class="text-indigo-400 hover:text-indigo-300 transition-colors">View Source →</a>
+          <a href="https://github.com/BinitDOX/Qwen-Image-Edit-Kaggle" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 transition-colors">View Source →</a>
         </div>
       </div>
 
@@ -203,10 +206,11 @@
           <span class="px-2.5 py-1 text-xs font-semibold bg-purple-500/10 border border-purple-500/20 text-purple-300 rounded-full">C#</span>
         </div>
         <p class="text-slate-300 text-sm mb-6 leading-relaxed flex-grow">
-          Generates Beat Saber maps using AI directly in-game. Because doing it manually is tedious.
+          Generates Beat Saber maps using AI directly in-game. Because doing it manually is tedious. Bridges deep learning with VR game mechanics.
         </p>
         <div class="flex gap-4 text-sm font-semibold mt-auto pt-4 border-t border-slate-700/50">
-          <a href="https://github.com/BinitDOX/AutoSaber-Quest" class="text-indigo-400 hover:text-indigo-300 transition-colors">View Source →</a>
+          <a href="https://auto-saber.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 transition-colors">Live Site →</a>
+          <a href="https://github.com/BinitDOX/AutoSaber-Quest" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 transition-colors">Source</a>
         </div>
       </div>
 
@@ -217,7 +221,7 @@
       <p class="text-slate-400 max-w-xl mx-auto">
         There’s more weird stuff on my GitHub — experiments, half-built ideas, and things I probably forgot about.
       </p>
-      <a href="https://github.com/BinitDOX?tab=repositories" target="_blank" class="inline-block mt-6 text-indigo-400 hover:text-indigo-300 font-semibold transition-colors">
+      <a href="https://github.com/BinitDOX?tab=repositories" target="_blank" rel="noopener noreferrer" class="inline-block mt-6 text-indigo-400 hover:text-indigo-300 font-semibold transition-colors">
         View all repositories →
       </a>
     </div>
