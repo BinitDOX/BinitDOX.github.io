@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy - AARA</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    body {
+      background-color: #0f172a;
+      color: #f8fafc;
+      font-family: 'Inter', -apple-system, sans-serif;
+      overflow-x: hidden;
+    }
+    .blob-1 { position: fixed; top: -10%; left: -10%; width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(236,72,153,0.1) 0%, rgba(0,0,0,0) 70%); z-index: -1; }
+    .blob-2 { position: fixed; bottom: -10%; right: -10%; width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(168,85,247,0.05) 0%, rgba(0,0,0,0) 70%); z-index: -1; }
+
+    .glass-card {
+      background: rgba(30, 41, 59, 0.7);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0f172a; }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #475569; }
+  </style>
+</head>
+
+<body class="antialiased relative min-h-screen flex flex-col">
+  <div class="blob-1"></div>
+  <div class="blob-2"></div>
+
+  <!-- HEADER -->
+  <header class="w-full max-w-4xl mx-auto px-4 pt-12 pb-8" data-aos="fade-down">
+    <a href="../index.html" class="text-pink-400 hover:text-pink-300 flex items-center gap-2 text-sm font-medium mb-8 transition-colors">
+      <span>←</span> Back to Portfolio
+    </a>
+    <h1 class="text-4xl md:text-5xl font-extrabold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
+      Privacy Policy
+    </h1>
+    <p class="text-slate-400 font-mono text-sm">App: AARA (Advanced Active Recall Assistants)</p>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="w-full max-w-4xl mx-auto px-4 flex-grow mb-20" data-aos="fade-up" data-aos-delay="100">
+    <div class="glass-card rounded-2xl p-6 md:p-10 text-slate-300 space-y-8 leading-relaxed">
+      
+      <section>
+        <h2 class="text-2xl font-bold text-white mb-3">1. Introduction</h2>
+        <p>
+          Welcome to AARA: Advanced Active Recall Assistants. This Privacy Policy explains how we handle your information when you use our app. We are committed to protecting your privacy and ensuring that your personal data is secure.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-white mb-3">2. Information Collection and Use</h2>
+        <div class="p-4 rounded-lg bg-pink-500/10 border border-pink-500/20 text-pink-200 mb-4">
+          <strong>TL;DR:</strong> AARA does not collect, store, or transmit any personal information from its users by default.
+        </div>
+        <p class="mb-4">
+          All interactions with assistants are processed locally on your device, using a Gemini API key that you personally configure. AARA does not access, view, or transmit your API key or interaction data beyond your own device.
+        </p>
+        <p class="mb-4 text-slate-400 text-sm italic">
+          Please note that if you use a free Gemini API key, your data interactions may be logged and used for service improvement by Google, according to their policies. If you require enhanced privacy, we recommend reviewing Google's documentation and considering their paid service options.
+        </p>
+        <p>
+          Assets such as audio or images generated during interactions are temporarily stored in the public Documents folder on your device. This allows you to easily manage, view, or delete these files. In future updates, these assets will be stored within the app’s private storage space for improved privacy and security.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-white mb-3">3. Permissions and Access</h2>
+        <p class="mb-4">
+          AARA may request the following permissions to enable specific functionalities. Granting these permissions is completely optional; the app’s core features will work even if you choose not to grant them.
+        </p>
+        <div class="space-y-4 text-slate-400">
+          <div><strong class="text-pink-300">Internet Access:</strong> Required to communicate with the Gemini API and for future cloud features like group chats.</div>
+          <div><strong class="text-pink-300">Microphone Access:</strong> Enables you to interact with assistants through voice input.</div>
+          <div><strong class="text-pink-300">Storage Access:</strong> Allows the app to access your music library so that your assistant can play your personal audio files on request.</div>
+          <div><strong class="text-pink-300">Notifications & Vibration:</strong> Used to send reminders, alarms, and assistant messages, with optional haptic feedback.</div>
+          <div><strong class="text-pink-300">Telephony Access:</strong> Allows AARA to interact with call-related events, such as reading phone state or responding to incoming calls, when permitted.</div>
+          <div><strong class="text-pink-300">Foreground Service Access:</strong> Used to ensure that music playback, speech recognition, and alarms function reliably even when the app is running in the background.</div>
+          <div class="p-4 bg-slate-800/50 rounded-lg border border-slate-700">
+            <strong class="text-pink-300 block mb-2">Accessibility Service Access:</strong>
+            Used to enable automations, override Google Assistant, and facilitate device control features. The app does not change user settings without permission, work around Android built-in privacy controls and notifications, or change the user interface in a deceptive manner. The app does not use the Accessibility Service API for remote call audio recording.
+          </div>
+        </div>
+        <p class="mt-4 font-medium text-white">At no point does AARA access or transmit personal data without your explicit action or consent.</p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-white mb-3">4. Internet Usage</h2>
+        <p class="mb-4">
+          AARA requires internet access to connect to the Gemini API when interacting with your assistants. All calls to external services are made directly from your device. We do not operate proxy servers, log queries, or store your communications.
+        </p>
+        <p>
+          In the future, if you choose to connect to AARA’s optional server features (for cloud-based chats, accounts, and group chats), your login credentials and chat data will be securely managed according to industry best practices.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-white mb-3">5. Child Privacy</h2>
+        <p>
+          AARA is not intended for individuals under the age of 13. We do not knowingly collect or solicit any information from children. If you believe a child has provided us with personal information, please contact us, and we will take steps to delete such information promptly.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-white mb-3">6. Security & Changes to Policy</h2>
+        <p class="mb-4">
+          We take all reasonable steps to protect your information and interactions within the app. Although AARA minimizes data handling, we continue to implement security best practices to prevent unauthorized access, protect device functionality, and maintain data integrity.
+        </p>
+        <p>
+          We may update this Privacy Policy from time to time to reflect changes in our practices, app features, or legal requirements. You will be notified of any significant changes, and continued use of the app after changes constitutes acceptance of the updated policy.
+        </p>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="border-t border-slate-800 py-8 text-center text-slate-500 text-sm mt-auto">
+    <p>© 2026 BinitDOX. All rights reserved.</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init({ once: true, offset: 20 });</script>
+</body>
+</html>
