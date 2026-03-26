@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BinitDOX</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    body {
+      background-color: #0f172a;
+      color: #f8fafc;
+      font-family: 'Inter', -apple-system, sans-serif;
+      overflow-x: hidden;
+    }
+    .blob-1 { position: absolute; top: -10%; left: -10%; width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, rgba(0,0,0,0) 70%); z-index: -1; }
+    .blob-2 { position: absolute; bottom: -10%; right: -10%; width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(16,185,129,0.1) 0%, rgba(0,0,0,0) 70%); z-index: -1; }
+
+    .glass-card {
+      background: rgba(30, 41, 59, 0.7);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .glass-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.3);
+      border: 1px solid rgba(99, 102, 241, 0.5);
+    }
+
+    .terminal {
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 16px;
+      font-family: monospace;
+      font-size: 0.9rem;
+      color: #94a3b8;
+      max-width: 600px;
+    }
+    .terminal span { color: #22c55e; }
+  </style>
+</head>
+
+<body class="antialiased relative">
+  <div class="blob-1"></div>
+  <div class="blob-2"></div>
+
+  <!-- HERO -->
+  <header class="min-h-screen flex flex-col justify-center items-center text-center px-4" data-aos="fade-up">
+    <h1 class="text-5xl md:text-7xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-emerald-400">
+      Hi, I'm Binit.
+    </h1>
+
+    <p class="text-xl md:text-2xl text-slate-400 mb-6 max-w-2xl">
+      I build AI systems, tools, and experiments → sometimes useful, sometimes just because I can.
+    </p>
+
+    <!-- terminal -->
+    <div class="terminal mb-8">
+      <div><span>>></span> building multi-agent systems</div>
+      <div><span>>></span> experimenting with AI pipelines</div>
+      <div><span>>></span> making software do things it shouldn't</div>
+    </div>
+
+    <div class="flex gap-4">
+      <a href="https://github.com/BinitDOX" target="_blank" class="px-6 py-3 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white font-medium shadow-lg shadow-indigo-500/30">
+        GitHub
+      </a>
+      <a href="#projects" class="px-6 py-3 rounded-full border border-slate-600 hover:border-slate-400 text-slate-300 hover:text-white">
+        Explore
+      </a>
+    </div>
+
+    <!-- current interests -->
+    <p class="text-slate-400 mt-10 max-w-xl text-sm">
+      Currently into → multi-agent systems • local-first AI • distributed inference • weird automation
+    </p>
+  </header>
+
+  <!-- PATTERNS -->
+  <section class="max-w-4xl mx-auto px-4 py-10 text-center" data-aos="fade-up">
+    <h2 class="text-3xl font-bold mb-4">Patterns</h2>
+    <p class="text-slate-400">
+      Most of what I build revolves around control systems, AI pipelines, and pushing tools slightly beyond what they were meant to do.
+    </p>
+  </section>
+
+  <!-- PROJECTS -->
+  <main id="projects" class="max-w-6xl mx-auto px-4 py-10">
+    <h2 class="text-3xl font-bold mb-12 text-center" data-aos="fade-up">Stuff I've Built</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <div class="glass-card rounded-2xl p-6" data-aos="fade-up">
+        <h3 class="text-xl font-bold text-emerald-400 mb-3">ShadowRecord</h3>
+        <p class="text-sm text-slate-300">
+          Records audio in the background, skips silence, keeps a rolling buffer. Built to capture "what just happened" moments.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-2xl p-6" data-aos="fade-up">
+        <h3 class="text-xl font-bold text-indigo-400 mb-3">Manga-Colorizer</h3>
+        <p class="text-sm text-slate-300">
+          Deep learning pipeline to colorize manga panels. Still feels illegal how well it works sometimes.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-2xl p-6" data-aos="fade-up">
+        <h3 class="text-xl font-bold text-orange-400 mb-3">FakePowerOff</h3>
+        <p class="text-sm text-slate-300">
+          Fake shutdown screen. Started as a curiosity, ended up being oddly practical.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-2xl p-6" data-aos="fade-up">
+        <h3 class="text-xl font-bold text-pink-400 mb-3">ARA</h3>
+        <p class="text-sm text-slate-300">
+          Multi-agent assistant system where you design assistants that can control your Android. Memory and recall are just side features, the real goal is control + autonomy.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-2xl p-6" data-aos="fade-up">
+        <h3 class="text-xl font-bold text-sky-400 mb-3">ComfyUI Tensor Bridge</h3>
+        <p class="text-sm text-slate-300">
+          Moves tensors/images between ComfyUI instances over the network. Built for distributed AI experiments.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-2xl p-6" data-aos="fade-up">
+        <h3 class="text-xl font-bold text-red-400 mb-3">AutoSaber Quest</h3>
+        <p class="text-sm text-slate-300">
+          Generates Beat Saber maps using AI directly in-game. Because doing it manually sucks.
+        </p>
+      </div>
+
+    </div>
+
+    <p class="text-center text-slate-500 mt-16">
+      There’s more weird stuff on my GitHub → experiments, half-built ideas, and things I probably forgot about.
+    </p>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 mt-20 py-8 text-center text-slate-500 text-sm">
+    <p>© 2026 BinitDOX</p>
+    <p class="mt-2">Mostly building AI systems, experimenting with ideas, and occasionally shipping something useful.</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true, offset: 50 });
+  </script>
+</body>
+</html>
